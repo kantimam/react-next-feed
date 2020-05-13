@@ -7,7 +7,7 @@ const initialState: RecipesState = {
 const recipeReducer = (state = initialState, action: GetRecipesAction) => {
     switch (action.type) {
         case GET_RECIPES:
-            return { ...state, value: state.recipes + 1 };
+            return { ...state, recipes: state.recipes + 1 };
         default:
             return { ...state };
     }
