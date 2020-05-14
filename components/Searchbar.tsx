@@ -3,42 +3,33 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-interface CountryType {
+interface ResponseDataType {
   name: string;
 }
 
-/* function sleep(delay = 0) {
-  return new Promise((resolve) => {
-    setTimeout(resolve, delay);
-  });
-} */
 
 type SearchbarProps = {
-  getOptions: () => Promise<Response>,
+  getOptions: (value: string) => Promise<Response>,
 }
 
 export default function Searchbar({ getOptions }: SearchbarProps) {
   const [open, setOpen] = React.useState(false);
-  const [options, setOptions] = React.useState<CountryType[]>([]);
-  const [loading, setLoading]=React.useState(false);
+  const [options, setOptions] = React.useState<ResponseDataType[]>([]);
+  const [loading, setLoading] = React.useState(false);
 
 
-  const onInputChange = async (_event: object, _value: string, reason: string) => {
-    if (reason === "input") {
+  const onInputChange = async (_event: object, value: string, reason: string) => {
+    if (reason === "input" && value) {
       setLoading(true)
-      const response = await getOptions();
-      /* await sleep(1e3); // For demo purposes. */
-      const countries = await response.json();
-      setOptions(Object.keys(countries).map((key) => countries[key].item[0]) as CountryType[]);
+      const response = await getOptions(value);
+      const data = await response.json();
+      if (!data || !data.length || !data[0].name) return;
+      setOptions(data as ResponseDataType[]);
       setLoading(false)
     }
   }
 
-  /* React.useEffect(() => {
-    if (!open) {
-      setOptions([]);
-    }
-  }, [open]); */
+
 
   return (
     <Autocomplete
@@ -57,10 +48,12 @@ export default function Searchbar({ getOptions }: SearchbarProps) {
       loading={loading}
       onInputChange={onInputChange}
 
+
       renderInput={(params) => (
         <TextField
           {...params}
-          label="Asynchronous"
+          label="Recipes"
+          placeholder="Search for names, ingredients or types"
           variant="outlined"
           InputProps={{
             ...params.InputProps,
