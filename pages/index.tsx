@@ -6,23 +6,28 @@ import { RootState } from '../redux/reducers/rootReducer';
 import { getRecipes } from '../redux/actions/recipeActions';
 import Button from '@material-ui/core/Button';
 import { getPreviewAPI } from '../api';
+import { Container, Grid, Typography } from '@material-ui/core';
 
 
 const IndexPage = ({ recipes, getRecipes }: { recipes: any, getRecipes: any }) => (
-  < Layout title="Home | Next.js + TypeScript Example" >
-    <h1>Hello Next.js 👋</h1>
-    <main>
-      <div>
-        {recipes && JSON.stringify(recipes)}
-      </div>
-      <Button onClick={getRecipes} variant="contained" color="primary">
-        Primary
-      </Button>
+  < Layout>
+    <Container>
+
 
       <Searchbar
         getOptions={getPreviewAPI}
       />
-    </main>
+      <Grid container direction="column" justify="center" alignItems="center">
+        <Typography>
+          {recipes && JSON.stringify(recipes)}
+        </Typography>
+        <Button onClick={getRecipes} variant="contained" color="primary">
+          Primary
+        </Button>
+      </Grid>
+
+
+    </Container>
   </Layout >
 )
 

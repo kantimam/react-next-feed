@@ -2,6 +2,7 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import App from 'next/app'
 import withReduxStore from '../lib/withReduxStore'
+import '../styles/main.css'
 
 class MyApp extends App {
     render() {
