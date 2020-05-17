@@ -1,8 +1,88 @@
+.flexCenter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.flexCenterVert {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .createRecipeForm {
-  margin: 2rem 0;
+  margin: 1rem 0;
+}
+
+.createRecipeForm .recipeInput {
+  margin: 0.5rem 0;
 }
 
 .formAddSteps {
   margin: 2rem 0;
+}
+
+.recipeStepCard {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto 4rem 4rem;
+      grid-template-columns: auto 4rem 4rem;
+  -ms-grid-rows: auto auto;
+      grid-template-rows: auto auto;
+  gap: 0.4rem 1rem;
+  margin: 1rem 0;
+  padding: 0.4rem 0.3rem;
+}
+
+.recipeStepCard .stepIndex {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  margin: 0 14px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.recipeStepCard .editButton {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+}
+
+.recipeStepCard .deleteButton {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3/4;
+}
+
+.recipeStepCard .stepText {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  grid-column: 1/-1;
+  min-height: 4rem;
+  padding: 18.5px 14px;
+}
+
+.recipeStepCard .stepInput {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  grid-column: 1/-1;
+  min-height: 4rem;
+}
+
+.recipeStepCard .stepInput textarea {
+  min-height: 6rem !important;
 }
 /*# sourceMappingURL=main.css.map */

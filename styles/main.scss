@@ -1,7 +1,65 @@
+.flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flexCenterVert {
+    display: flex;
+    align-items: center;
+}
+
 .createRecipeForm {
-    margin: 2rem 0;
+    margin: 1rem 0;
+
+    .recipeInput {
+        margin: 0.5rem 0;
+    }
 }
 
 .formAddSteps {
     margin: 2rem 0;
+}
+
+
+
+.recipeStepCard {
+    display: grid;
+    grid-template-columns: auto 4rem 4rem;
+    grid-template-rows: auto auto;
+    gap: 0.4rem 1rem;
+    margin: 1rem 0;
+    padding: 0.4rem 0.3rem;
+
+    .stepIndex {
+        grid-column: 1/2;
+        margin: 0 14px;
+        align-self: center;
+    }
+
+    .editButton {
+        grid-column: 2/3;
+    }
+
+    .deleteButton {
+        grid-column: 3/4;
+    }
+
+    .stepText {
+        grid-row: 2/3;
+        grid-column: 1/-1;
+        min-height: 4rem;
+        padding: 18.5px 14px;
+    }
+
+    .stepInput {
+        grid-row: 2/3;
+        grid-column: 1/-1;
+        min-height: 4rem;
+
+        textarea {
+            min-height: 6rem !important;
+        }
+
+    }
 }
