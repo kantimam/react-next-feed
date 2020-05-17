@@ -6,19 +6,13 @@ import CreateRecipeForm from '../components/CreateRecipeForm';
 
 
 export default class create extends Component {
-    onFormSubmit = (formValues: any, action: any) => {
-        console.log(formValues)
-        //alert(JSON.stringify(formValues))
-        console.log(action)
-    }
+
     render() {
         return (
             < Layout title="Create Recipe" >
                 <Container>
-                    <Typography variant="h4">Hello world</Typography>
-                    <CreateRecipeForm
-                        onSubmit={this.onFormSubmit}
-                    />
+                    <Typography variant="h4">create recipe</Typography>
+                    <CreateRecipeForm />
                 </Container>
             </Layout >
         )
