@@ -10,7 +10,7 @@ import { Container, Grid, Typography } from '@material-ui/core';
 
 
 const IndexPage = ({ recipes, getRecipes }: { recipes: any, getRecipes: any }) => (
-  < Layout>
+  <Layout>
     <Container>
 
 
@@ -28,7 +28,7 @@ const IndexPage = ({ recipes, getRecipes }: { recipes: any, getRecipes: any }) =
 
 
     </Container>
-  </Layout >
+  </Layout>
 )
 
 const mapStateToProps = (state: RootState) => {
